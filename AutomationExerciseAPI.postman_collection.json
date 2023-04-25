@@ -1,0 +1,801 @@
+{
+	"info": {
+		"_postman_id": "2c8f1c57-e59b-4e47-b33a-b0902f9f1c36",
+		"name": "Automation Exercise API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API 1: Get All Products List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(200);\r",
+							"});\r",
+							"const expected_response = pm.collectionVariables.get(\"test1_response\");\r",
+							"pm.test(\"Body is correct\", function () {\r",
+							"    pm.response.to.have.body(expected_response);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://automationexercise.com/api/productsList",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"productsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 2: POST To All Products List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://automationexercise.com/api/productsList",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"productsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 3: Get All Brands List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(200);\r",
+							"});\r",
+							"const expected_response = pm.collectionVariables.get(\"test3_response\");\r",
+							"pm.test(\"Body is correct\", function () {\r",
+							"    pm.response.to.have.body(expected_response);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://automationexercise.com/api/brandsList",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"brandsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 4: PUT To All Brands List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://automationexercise.com/api/brandsList",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"brandsList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 5: POST To Search Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(200);\r",
+							"});\r",
+							"const expected_response = pm.collectionVariables.get(\"test5_response\");\r",
+							"pm.test(\"Body is correct\", function () {\r",
+							"    pm.response.to.have.body(expected_response);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "search_product",
+							"value": "tshirt",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/searchProduct",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"searchProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 6: POST To Search Product without search_product parameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://automationexercise.com/api/searchProduct",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"searchProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 11: POST To Create/Register User Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(201);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"User created\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "default"
+						},
+						{
+							"key": "title",
+							"value": "{{title}}",
+							"type": "default"
+						},
+						{
+							"key": "birth_date",
+							"value": "{{birth_day}}",
+							"type": "default"
+						},
+						{
+							"key": "birth_month",
+							"value": "{{birth_month}}",
+							"type": "default"
+						},
+						{
+							"key": "birth_year",
+							"value": "{{birth_year}}",
+							"type": "default"
+						},
+						{
+							"key": "firstname",
+							"value": "{{name}}",
+							"type": "default"
+						},
+						{
+							"key": "lastname",
+							"value": "{{last_name}}",
+							"type": "default"
+						},
+						{
+							"key": "company",
+							"value": "{{company}}",
+							"type": "default"
+						},
+						{
+							"key": "address1",
+							"value": "{{address1}}",
+							"type": "default"
+						},
+						{
+							"key": "address2",
+							"value": "{{address2}}",
+							"type": "default"
+						},
+						{
+							"key": "country",
+							"value": "{{country}}",
+							"type": "default"
+						},
+						{
+							"key": "zipcode",
+							"value": "{{zipcode}}",
+							"type": "default"
+						},
+						{
+							"key": "state",
+							"value": "{{state}}",
+							"type": "default"
+						},
+						{
+							"key": "city",
+							"value": "{{city}}",
+							"type": "default"
+						},
+						{
+							"key": "mobile_number",
+							"value": "{{mobile_number}}",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/createAccount",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"createAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 7: POST To Verify Login with valid details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/verifyLogin",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 8: POST To Verify Login without email parameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/verifyLogin",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 9: DELETE To Verify Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://automationexercise.com/api/verifyLogin",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 10: POST To Verify Login with invalid details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(404);\r",
+							"    // shouldn't that be 401?\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "aaa{{email}}",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "aaa{{password}}",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/verifyLogin",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 13: PUT METHOD To Update User Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"User updated\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "default"
+						},
+						{
+							"key": "company",
+							"value": "{{new_company}}",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/updateAccount",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"updateAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 14: GET user account detail by email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(200);\r",
+							"});\r",
+							"const comp = pm.collectionVariables.get(\"new_company\");\r",
+							"pm.test(\"Company was updated\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.user.company).to.eql(comp);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://automationexercise.com/api/getUserDetailByEmail?email={{email}}",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"getUserDetailByEmail"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "{{email}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API 12: DELETE METHOD To Delete User Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.expect(pm.response.json().responseCode).to.eql(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Account deleted\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/deleteAccount",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"deleteAccount"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "email",
+			"value": "random@mail.com",
+			"type": "default"
+		},
+		{
+			"key": "password",
+			"value": "Passw0rd",
+			"type": "default"
+		},
+		{
+			"key": "name",
+			"value": "Bob",
+			"type": "default"
+		},
+		{
+			"key": "last_name",
+			"value": "Randomguy",
+			"type": "default"
+		},
+		{
+			"key": "title",
+			"value": "Mr.",
+			"type": "default"
+		},
+		{
+			"key": "birth_day",
+			"value": "13",
+			"type": "default"
+		},
+		{
+			"key": "birth_month",
+			"value": "7",
+			"type": "default"
+		},
+		{
+			"key": "birth_year",
+			"value": "2000",
+			"type": "default"
+		},
+		{
+			"key": "company",
+			"value": "Bobex",
+			"type": "default"
+		},
+		{
+			"key": "address1",
+			"value": "13 Random St",
+			"type": "default"
+		},
+		{
+			"key": "address2",
+			"value": "entrance C",
+			"type": "default"
+		},
+		{
+			"key": "country",
+			"value": "United States",
+			"type": "default"
+		},
+		{
+			"key": "zipcode",
+			"value": "12345",
+			"type": "default"
+		},
+		{
+			"key": "state",
+			"value": "Florida",
+			"type": "default"
+		},
+		{
+			"key": "city",
+			"value": "Miami",
+			"type": "default"
+		},
+		{
+			"key": "mobile_number",
+			"value": "1234567890",
+			"type": "default"
+		},
+		{
+			"key": "new_company",
+			"value": "BobX",
+			"type": "default"
+		},
+		{
+			"key": "test1_response",
+			"value": "{\"responseCode\": 200, \"products\": [{\"id\": 1, \"name\": \"Blue Top\", \"price\": \"Rs. 500\", \"brand\": \"Polo\", \"category\": {\"usertype\": {\"usertype\": \"Women\"}, \"category\": \"Tops\"}}, {\"id\": 2, \"name\": \"Men Tshirt\", \"price\": \"Rs. 400\", \"brand\": \"H&M\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Tshirts\"}}, {\"id\": 3, \"name\": \"Sleeveless Dress\", \"price\": \"Rs. 1000\", \"brand\": \"Madame\", \"category\": {\"usertype\": {\"usertype\": \"Women\"}, \"category\": \"Dress\"}}, {\"id\": 4, \"name\": \"Stylish Dress\", \"price\": \"Rs. 1500\", \"brand\": \"Madame\", \"category\": {\"usertype\": {\"usertype\": \"Women\"}, \"category\": \"Dress\"}}, {\"id\": 5, \"name\": \"Winter Top\", \"price\": \"Rs. 600\", \"brand\": \"Mast & Harbour\", \"category\": {\"usertype\": {\"usertype\": \"Women\"}, \"category\": \"Tops\"}}, {\"id\": 6, \"name\": \"Summer White Top\", \"price\": \"Rs. 400\", \"brand\": \"H&M\", \"category\": {\"usertype\": {\"usertype\": \"Women\"}, \"category\": \"Tops\"}}, {\"id\": 7, \"name\": \"Madame Top For Women\", \"price\": \"Rs. 1000\", \"brand\": \"Madame\", \"category\": {\"usertype\": {\"usertype\": \"Women\"}, \"category\": \"Tops\"}}, {\"id\": 8, \"name\": \"Fancy Green Top\", \"price\": \"Rs. 700\", \"brand\": \"Polo\", \"category\": {\"usertype\": {\"usertype\": \"Women\"}, \"category\": \"Tops\"}}, {\"id\": 11, \"name\": \"Sleeves Printed Top - White\", \"price\": \"Rs. 499\", \"brand\": \"Babyhug\", \"category\": {\"usertype\": {\"usertype\": \"Kids\"}, \"category\": \"Tops & Shirts\"}}, {\"id\": 12, \"name\": \"Half Sleeves Top Schiffli Detailing - Pink\", \"price\": \"Rs. 359\", \"brand\": \"Babyhug\", \"category\": {\"usertype\": {\"usertype\": \"Kids\"}, \"category\": \"Tops & Shirts\"}}, {\"id\": 13, \"name\": \"Frozen Tops For Kids\", \"price\": \"Rs. 278\", \"brand\": \"Allen Solly Junior\", \"category\": {\"usertype\": {\"usertype\": \"Kids\"}, \"category\": \"Tops & Shirts\"}}, {\"id\": 14, \"name\": \"Full Sleeves Top Cherry - Pink\", \"price\": \"Rs. 679\", \"brand\": \"Kookie Kids\", \"category\": {\"usertype\": {\"usertype\": \"Kids\"}, \"category\": \"Tops & Shirts\"}}, {\"id\": 15, \"name\": \"Printed Off Shoulder Top - White\", \"price\": \"Rs. 315\", \"brand\": \"Babyhug\", \"category\": {\"usertype\": {\"usertype\": \"Kids\"}, \"category\": \"Tops & Shirts\"}}, {\"id\": 16, \"name\": \"Sleeves Top and Short - Blue & Pink\", \"price\": \"Rs. 478\", \"brand\": \"Babyhug\", \"category\": {\"usertype\": {\"usertype\": \"Kids\"}, \"category\": \"Dress\"}}, {\"id\": 18, \"name\": \"Little Girls Mr. Panda Shirt\", \"price\": \"Rs. 1200\", \"brand\": \"Kookie Kids\", \"category\": {\"usertype\": {\"usertype\": \"Kids\"}, \"category\": \"Tops & Shirts\"}}, {\"id\": 19, \"name\": \"Sleeveless Unicorn Patch Gown - Pink\", \"price\": \"Rs. 1050\", \"brand\": \"Allen Solly Junior\", \"category\": {\"usertype\": {\"usertype\": \"Kids\"}, \"category\": \"Dress\"}}, {\"id\": 20, \"name\": \"Cotton Mull Embroidered Dress\", \"price\": \"Rs. 1190\", \"brand\": \"Kookie Kids\", \"category\": {\"usertype\": {\"usertype\": \"Kids\"}, \"category\": \"Dress\"}}, {\"id\": 21, \"name\": \"Blue Cotton Indie Mickey Dress\", \"price\": \"Rs. 1530\", \"brand\": \"Biba\", \"category\": {\"usertype\": {\"usertype\": \"Kids\"}, \"category\": \"Dress\"}}, {\"id\": 22, \"name\": \"Long Maxi Tulle Fancy Dress Up Outfits -Pink\", \"price\": \"Rs. 1600\", \"brand\": \"Biba\", \"category\": {\"usertype\": {\"usertype\": \"Kids\"}, \"category\": \"Dress\"}}, {\"id\": 23, \"name\": \"Sleeveless Unicorn Print Fit & Flare Net Dress - Multi\", \"price\": \"Rs. 1100\", \"brand\": \"Biba\", \"category\": {\"usertype\": {\"usertype\": \"Kids\"}, \"category\": \"Dress\"}}, {\"id\": 24, \"name\": \"Colour Blocked Shirt \\u2013 Sky Blue\", \"price\": \"Rs. 849\", \"brand\": \"Allen Solly Junior\", \"category\": {\"usertype\": {\"usertype\": \"Kids\"}, \"category\": \"Tops & Shirts\"}}, {\"id\": 28, \"name\": \"Pure Cotton V-Neck T-Shirt\", \"price\": \"Rs. 1299\", \"brand\": \"H&M\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Tshirts\"}}, {\"id\": 29, \"name\": \"Green Side Placket Detail T-Shirt\", \"price\": \"Rs. 1000\", \"brand\": \"Polo\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Tshirts\"}}, {\"id\": 30, \"name\": \"Premium Polo T-Shirts\", \"price\": \"Rs. 1500\", \"brand\": \"Polo\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Tshirts\"}}, {\"id\": 31, \"name\": \"Pure Cotton Neon Green Tshirt\", \"price\": \"Rs. 850\", \"brand\": \"H&M\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Tshirts\"}}, {\"id\": 33, \"name\": \"Soft Stretch Jeans\", \"price\": \"Rs. 799\", \"brand\": \"Polo\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Jeans\"}}, {\"id\": 35, \"name\": \"Regular Fit Straight Jeans\", \"price\": \"Rs. 1200\", \"brand\": \"H&M\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Jeans\"}}, {\"id\": 37, \"name\": \"Grunt Blue Slim Fit Jeans\", \"price\": \"Rs. 1400\", \"brand\": \"Polo\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Jeans\"}}, {\"id\": 38, \"name\": \"Rose Pink Embroidered Maxi Dress\", \"price\": \"Rs. 2300\", \"brand\": \"Madame\", \"category\": {\"usertype\": {\"usertype\": \"Women\"}, \"category\": \"Dress\"}}, {\"id\": 39, \"name\": \"Cotton Silk Hand Block Print Saree\", \"price\": \"Rs. 3000\", \"brand\": \"Biba\", \"category\": {\"usertype\": {\"usertype\": \"Women\"}, \"category\": \"Saree\"}}, {\"id\": 40, \"name\": \"Rust Red Linen Saree\", \"price\": \"Rs. 3500\", \"brand\": \"Biba\", \"category\": {\"usertype\": {\"usertype\": \"Women\"}, \"category\": \"Saree\"}}, {\"id\": 41, \"name\": \"Beautiful Peacock Blue Cotton Linen Saree\", \"price\": \"Rs. 5000\", \"brand\": \"Madame\", \"category\": {\"usertype\": {\"usertype\": \"Women\"}, \"category\": \"Saree\"}}, {\"id\": 42, \"name\": \"Lace Top For Women\", \"price\": \"Rs. 1400\", \"brand\": \"Mast & Harbour\", \"category\": {\"usertype\": {\"usertype\": \"Women\"}, \"category\": \"Tops\"}}, {\"id\": 43, \"name\": \"GRAPHIC DESIGN MEN T SHIRT - BLUE\", \"price\": \"Rs. 1389\", \"brand\": \"Mast & Harbour\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Tshirts\"}}]}",
+			"type": "default"
+		},
+		{
+			"key": "test3_response",
+			"value": "{\"responseCode\": 200, \"brands\": [{\"id\": 1, \"brand\": \"Polo\"}, {\"id\": 2, \"brand\": \"H&M\"}, {\"id\": 3, \"brand\": \"Madame\"}, {\"id\": 4, \"brand\": \"Madame\"}, {\"id\": 5, \"brand\": \"Mast & Harbour\"}, {\"id\": 6, \"brand\": \"H&M\"}, {\"id\": 7, \"brand\": \"Madame\"}, {\"id\": 8, \"brand\": \"Polo\"}, {\"id\": 11, \"brand\": \"Babyhug\"}, {\"id\": 12, \"brand\": \"Babyhug\"}, {\"id\": 13, \"brand\": \"Allen Solly Junior\"}, {\"id\": 14, \"brand\": \"Kookie Kids\"}, {\"id\": 15, \"brand\": \"Babyhug\"}, {\"id\": 16, \"brand\": \"Babyhug\"}, {\"id\": 18, \"brand\": \"Kookie Kids\"}, {\"id\": 19, \"brand\": \"Allen Solly Junior\"}, {\"id\": 20, \"brand\": \"Kookie Kids\"}, {\"id\": 21, \"brand\": \"Biba\"}, {\"id\": 22, \"brand\": \"Biba\"}, {\"id\": 23, \"brand\": \"Biba\"}, {\"id\": 24, \"brand\": \"Allen Solly Junior\"}, {\"id\": 28, \"brand\": \"H&M\"}, {\"id\": 29, \"brand\": \"Polo\"}, {\"id\": 30, \"brand\": \"Polo\"}, {\"id\": 31, \"brand\": \"H&M\"}, {\"id\": 33, \"brand\": \"Polo\"}, {\"id\": 35, \"brand\": \"H&M\"}, {\"id\": 37, \"brand\": \"Polo\"}, {\"id\": 38, \"brand\": \"Madame\"}, {\"id\": 39, \"brand\": \"Biba\"}, {\"id\": 40, \"brand\": \"Biba\"}, {\"id\": 41, \"brand\": \"Madame\"}, {\"id\": 42, \"brand\": \"Mast & Harbour\"}, {\"id\": 43, \"brand\": \"Mast & Harbour\"}]}",
+			"type": "default"
+		},
+		{
+			"key": "test5_response",
+			"value": "{\"responseCode\": 200, \"products\": [{\"id\": 2, \"name\": \"Men Tshirt\", \"price\": \"Rs. 400\", \"brand\": \"H&M\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Tshirts\"}}, {\"id\": 28, \"name\": \"Pure Cotton V-Neck T-Shirt\", \"price\": \"Rs. 1299\", \"brand\": \"H&M\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Tshirts\"}}, {\"id\": 29, \"name\": \"Green Side Placket Detail T-Shirt\", \"price\": \"Rs. 1000\", \"brand\": \"Polo\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Tshirts\"}}, {\"id\": 30, \"name\": \"Premium Polo T-Shirts\", \"price\": \"Rs. 1500\", \"brand\": \"Polo\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Tshirts\"}}, {\"id\": 31, \"name\": \"Pure Cotton Neon Green Tshirt\", \"price\": \"Rs. 850\", \"brand\": \"H&M\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Tshirts\"}}, {\"id\": 43, \"name\": \"GRAPHIC DESIGN MEN T SHIRT - BLUE\", \"price\": \"Rs. 1389\", \"brand\": \"Mast & Harbour\", \"category\": {\"usertype\": {\"usertype\": \"Men\"}, \"category\": \"Tshirts\"}}]}",
+			"type": "default"
+		}
+	]
+}
